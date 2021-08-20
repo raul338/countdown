@@ -38,8 +38,8 @@
     <script>
       // stolen from https://stackoverflow.com/a/17733753/3788410
       function calcDate(limit) {
-        var diffDate = new Date(new Date() - limit);
-        document.getElementById('anios').textContent = 1970 - diffDate.getFullYear();
+        var diffDate = new Date(limit - new Date());
+        document.getElementById('anios').textContent = Math.abs(1970 - diffDate.getFullYear());
         document.getElementById('meses').textContent = diffDate.getMonth();
         document.getElementById('dias').textContent = diffDate.getDate();
         document.getElementById('horas').textContent = diffDate.getHours();
