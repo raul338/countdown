@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cuenta Regresiva</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 32px;
+      }
+
+      html,
+      body {
+        min-width: 100vw;
+        min-height: 100vh;
+        background-color: #000;
+        color: #eee;
+        font-weight: bolder;
+        font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div><span id="anios"></span> a&ntilde;os</div>
+    <div><span id="meses"></span> meses</div>
+    <div><span id="dias"></span> dias</div>
+    <div>&nbsp;</div>
+    <div><span id="horas"></span> horas</div>
+    <div><span id="minutos"></span> minutos</div>
+    <div><span id="segundos"></span> segundos</div>
+    <script>
+      // stolen from https://stackoverflow.com/a/17733753/3788410
+      function calcDate(limit) {
+        var diffDate = new Date(new Date() - limit);
+        document.getElementById('anios').textContent = 1970 - diffDate.getFullYear();
+        document.getElementById('meses').textContent = diffDate.getMonth();
+        document.getElementById('dias').textContent = diffDate.getDate();
+        document.getElementById('horas').textContent = diffDate.getHours();
+        document.getElementById('minutos').textContent = diffDate.getMinutes();
+        document.getElementById('segundos').textContent = diffDate.getSeconds();
+      }
+      const limite = new Date('2024-08-20 00:00:00');
+      setInterval(function () {
+        calcDate(limite);
+      }, 500);
+    </script>
+  </body>
+</html>
+
+
